@@ -5,7 +5,7 @@ import java.util.List;
 public class AccountListingServiceImpl implements AccountListingService {
     private final AccountDAO accountDAO;
 
-    AccountListingServiceImpl(AccountDAO accountDAO) {
+    public AccountListingServiceImpl(AccountDAO accountDAO) {
         this.accountDAO = accountDAO;
     }
 
