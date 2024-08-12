@@ -16,17 +16,18 @@ public class AccountBasicCLI {
     }
 
     public void createAccountRequest(String clientId) {
-        MyCLI myCLI = (MyCLI) createAccountOperationUI;
-        int clientAmount = (int) myCLI.requestClientAmount();
-        while (clientAmount > 0) {
-            AccountType accountType = myCLI.requestAccountType();
-            bankCore.createNewAccount(accountType, clientId);
-            clientAmount--;
+        CreateAccountOperationUI myCLI = (MyCLI) createAccountOperationUI;
+        AccountType accountType = myCLI.requestAccountType();
+        if (accountType == null) {
+            System.out.println("Please select correct account type");
+            return;
         }
+        bankCore.createNewAccount(accountType, clientId);
+        System.out.println("Bank account created");
     }
 
     public void getAccounts(String clientId) {
         List<Account> clientAccounts = accountListing.getClientAccounts(clientId);
-        clientAccounts.forEach(account -> bankCore.createNewAccount(account.getAccountType(), clientId));
+        System.out.println(clientAccounts);
     }
 }

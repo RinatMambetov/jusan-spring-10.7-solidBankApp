@@ -11,13 +11,13 @@ public class Account {
 
     public Account(AccountType accountType, String id, String clientId, double balance, boolean withdrawAllowed) {
         this.accountType = accountType;
-        this.id = id;
         this.clientId = clientId;
         this.balance = balance;
         this.withdrawAllowed = withdrawAllowed;
+        this.id = String.format("%03d%06d", Integer.parseInt(clientId), Integer.parseInt(id));
     }
 
-    protected double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -42,12 +42,8 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "accountType=" + accountType +
-                ", id='" + id + '\'' +
-                ", clientId='" + clientId + '\'' +
-                ", withdrawAllowed=" + withdrawAllowed +
-                '}';
+        return String.format("Account{id=%s, clientId=%s, balance=%.2f}",
+                id, clientId, balance);
     }
 
     public String getClientId() {
