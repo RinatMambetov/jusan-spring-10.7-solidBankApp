@@ -1,5 +1,7 @@
 package ru.rinat.solidBankApp;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.util.Scanner;
 
 public class Main {
@@ -16,16 +18,19 @@ public class Main {
                     7 - exit""";
 
     public static void main(String[] args) {
-
-        MyCLI myCLI = new MyCLI();
+        
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        MyCLI myCLI = context.getBean("myCLI", MyCLI.class);
         Scanner scanner = myCLI.getScanner();
         String clientId = myCLI.requestClientAccountNumber();
         System.out.println(help);
-        AccountDAO memoryAccountDAO = new MemoryAccountDAO();
-        AccountCreationService accountCreationService = new AccountCreationServiceImpl(memoryAccountDAO);
-        BankCore bankCore = new BankCore(accountCreationService);
-        AccountListingService accountListingService = new AccountListingServiceImpl(memoryAccountDAO);
-        AccountBasicCLI accountBasicCLI = new AccountBasicCLI(myCLI, bankCore, accountListingService);
+        AccountDAO memoryAccountDAO = context.getBean("memoryAccountDAO", MemoryAccountDAO.class);
+        AccountCreationService accountCreationService =
+                context.getBean("accountCreationServiceImpl", AccountCreationServiceImpl.class);
+        BankCore bankCore = context.getBean("bankCore", BankCore.class);
+        AccountListingService accountListingService =
+                context.getBean("accountListingServiceImpl", AccountListingServiceImpl.class);
+        AccountBasicCLI accountBasicCLI = context.getBean("accountBasicCLI", AccountBasicCLI.class);
 
         while (scanner.hasNext()) {
             switch (scanner.next()) {
@@ -36,5 +41,6 @@ public class Main {
                 default -> System.out.println("Wrong operation number");
             }
         }
+        context.close();
     }
 }

@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be14df1f-b270-402f-aa8d-98241715dbb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/AccountBasicCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/AccountBasicCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/SpringConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/MyCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/solidBankApp/MyCLI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
